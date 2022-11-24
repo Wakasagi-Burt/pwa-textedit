@@ -1,31 +1,32 @@
-"name": "jate",
-"version": "1.0.0",
-"description": "> The name of the assignment is Progressive Web Applications (PWA): Text Editor.",
-"main": "index.js",
-"engines": {
-  "node": "18.x"
-},
-"scripts": {
-  "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
-  "start": "npm run build && cd server && node server.js",
-  "server": "cd server nodemon server.js --ignore client",
-  "build": "cd client && npm run build",
-  "install": "cd server && npm i && cd ../client && npm i",
-  "client": "cd client && npm start"
-},
-"keywords": [],
-"author": "",
-"license": "ISC",
-"dependencies": {
-  "express": "^4.17.1",
-  "idb": "^7.1.1",
-  "if-env": "^1.0.4"
-},
-"devDependencies": {
-  "concurrently": "^5.2.0",
-  "nodemon": "^2.0.4"
-},
-"repository": {
-  "type": "git",
-  "url": "git+https://github.com/Wakasagi-Burt/pwa-textedit.git"
+{
+  "name": "pwa-textedit",
+  "version": "1.0.0",
+  "description": "pwa text editor assignment",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
+    "start": "npm run build && cd server && node server.js",
+    "server": "cd server nodemon server.js --ignore client",
+    "build": "cd client && npm run build",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "client": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wakasagi-Burt/pwa-textedit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wakasagi-Burt/pwa-textedit/issues"
+  },
+  "homepage": "https://github.com/Wakasagi-Burt/pwa-textedit#readme",
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "express": "^4.17.1",
+    "idb": "^7.1.1",
+    "if-env": "^1.0.4",
+    "nodemon": "^2.0.4"
+  }
 }
