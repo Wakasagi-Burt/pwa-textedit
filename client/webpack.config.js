@@ -18,12 +18,45 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        template: "./index.html",
+        title: "Text Editor PWA",
+      }),
+      new InjectManifest({
+        swSrc: "./src-sw.js",
+        swDest: "src-sw.js",
+      }),
+      new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
+        name: "textEditor",
+        short_name: "Jate",
+        description: "JS notetaker",
+        id: "/",
+        start_url: "/",
+        publicPath: "/",
+      })
     ],
-
     module: {
       rules: [
-        
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+      },
+      {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+              loader: 'babel-loader',
+              options: {
+                  presets: ['@babel/preset-env'],
+                  plugins: [
+                      '@babel/plugin-proposal-object-rest-spread',
+                      '@babel/transform-runtime',
+                  ],
+              },
+          },
+      },
       ],
     },
   };
